@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Models\Registered_Land;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    // Check for search input
+    if (request('search')) {
+        $registered_Land = Registered_Land::where('beacon', 'like', '%' . request('search') . '%')->get();
+    }
+    else {
+        $registered_Land = Registered_Land::all();
+    }
+
+    return view('search', compact('registered_Land'));
 });
 
 Auth::routes();

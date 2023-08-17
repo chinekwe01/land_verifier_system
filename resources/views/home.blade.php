@@ -121,7 +121,6 @@
             @endforeach
         </tbody>
         {!! $registered_Land->render() !!}
-
     </table>
 </div>
 
