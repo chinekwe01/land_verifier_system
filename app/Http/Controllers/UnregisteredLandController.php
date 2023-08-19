@@ -14,7 +14,8 @@ class UnregisteredLandController extends Controller
      */
     public function index()
     {
-        //
+        $unregistered_Land = Unregistered_Land::latest()->paginate(3);
+        return view('unregistered.home', compact('unregistered_Land'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

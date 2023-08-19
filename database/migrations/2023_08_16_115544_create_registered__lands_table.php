@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('beacon');
             $table->string('survey_plan');
             $table->longText('deals');
-            $table->date('date_registered');
+            $table->date('date_registered')->nullable();
             $table->string('owner');
             $table->string('formerOwner');
             $table->timestamps();

@@ -25,7 +25,7 @@ class RegisteredLandController extends Controller
      */
     public function create()
     {
-        //
+        return view('register-land.create');
     }
 
     /**
@@ -36,7 +36,27 @@ class RegisteredLandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'registration_number' => 'required',
+            'beacon' => 'required|max:255',
+            'survey_plan' => 'required|max:255',
+            'deals' => 'required',
+            'date_registered' =>'required',
+            'owner' =>'required',
+            'formerOwner' =>'required',
+        ]);
+        // dd($request->all());
+        $register_land = Registered_Land::create([
+            'registration_number' => $request->registration_number,
+            'beacon' => $request->beacon,
+            'survey_plan' => $request->survey_plan,
+            'deals' => $request->deals,
+            'date_registered' => $request->date_registered,
+            'owner' => $request->owner,
+            'formerOwner' => $request->formerOwner,
+        ]);
+
+        return redirect()->route('home')->with('success','Land registered successfully.');
     }
 
     /**

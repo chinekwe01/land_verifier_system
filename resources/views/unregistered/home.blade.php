@@ -51,7 +51,7 @@
 
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We offer affordable lands and villas at top pick locations with complete documents of ownership and other interesting offers!</h1>
         <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
         <div class="flex mb-5 flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
@@ -83,33 +83,27 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Reg no.
+                            Owner Name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Survey plan
+                            Owner Phone
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Deals
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Date Regitered
+                            Owner Address
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($registered_Land as $reg_land)
+                    @forelse($unregistered_Land as $unreg_land)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $reg_land->registration_number }}
+                            {{ $unreg_land->owner_name }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $reg_land->survey_plan }}
+                            {{ $unreg_land->owner_phone }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $reg_land->deals }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $reg_land->date_registered }}
+                            {{ $unreg_land->owner_address }}
                         </td>
                         @empty
                         <td class="px-6 py-4">
